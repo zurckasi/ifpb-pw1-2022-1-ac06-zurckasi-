@@ -1,0 +1,25 @@
+<%- include('header') %> 
+<%indice = 0%>
+<% if (entries.length) { %> 
+  <div>
+  <% for (const entry of entries) { %>
+    <div class="card m-1 p-0 mx-auto" style="width: 20rem">
+      <div class="card-body">
+        <h5 class="card-header h2 m-1 p-2"><%= entry.title %></h5>
+        <p class="m-2 p-0"><%= entry.content %></p>
+        <p class="text-muted m-0 p-0"><small><%= entry.published %></small></p>
+      </div>
+        <a href="./infopost" >
+          <input type="button" value="Detalhamento" id="<%indice%>" class="btn btn-primary">
+        </a>
+    </div>
+    <%indice++%>
+  <% } %>
+  </div>
+  <div>
+    <p class="display-6 text-center">Olá, 
+      <% if(entries.length > 1) { %> <%=(entries.length)%> pessoas deixaram uma mensagem <3</p>
+        <% } else { %> 1 pessoa deixou uma mensagem <3</p><% } %> 
+  </div>
+<% } else { %> Sem mensagens! <a href="/new-entry">Adicione uma!</a>
+<% } %> <%- include('footer') %>
